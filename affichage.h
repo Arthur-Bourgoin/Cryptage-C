@@ -4,7 +4,8 @@ void affichageMenuChiffrement();
 
 void affichageMenuTexte();
 
-void chiffrementDeVigenere();
+void chiffrementVigenere();
 
 void chiffrementCesar();
 
+void chiffrementHill();

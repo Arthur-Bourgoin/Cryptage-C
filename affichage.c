@@ -6,12 +6,13 @@
 #include "affichage.h"
 #include "vigenere.h"
 #include "cesar.h"
+#include "hill.h"
 
 int choixMenu() {
     char* choix = NULL;
     size_t taille = 0;
     int code;
-    if (getline(&choix, &taille, stdin) != 2 || isdigit(choix[0])==0) {
+    if (getline(&choix, &taille, stdin) != 2 || !isdigit(choix[0])) {
         free(choix);
         return 0;
     } else {
@@ -26,7 +27,8 @@ void affichageMenuChiffrement() {
     printf("******************************\n");
     printf("* 1. Chiffrement de Cesar    *\n");
     printf("* 2. Chiffrement de Vigenere *\n");
-    printf("* 3. Fin du programme        *\n");
+    printf("* 3. Chiffrement de Hill     *\n");
+    printf("* 4. Fin du programme        *\n");
     printf("******************************\n");
     printf("\nVotre choix : ");
 }
@@ -43,7 +45,7 @@ void affichageMenuTexte() {
     printf("\nVotre choix : ");
 }
 
-void chiffrementDeVigenere() {
+void chiffrementVigenere() {
     int choix = 0;
     while (choix!=5) {
         printf("\n                    CHIFFREMENT DE VIGENERE\n\n");
@@ -96,6 +98,40 @@ void chiffrementCesar() {
                 break;
             case 4:
                 dechiffrerFichierCesar();
+                break;
+            case 5:
+                break;
+            case 6:
+                printf("\nFin du programme...\n");
+                exit(EXIT_SUCCESS);
+                break;
+            default :
+                printf("\nVeuillez saisir un chiffre qui correspond à un choix.\n");
+        }
+    }
+}
+
+void chiffrementHill() {
+    int choix = 0;
+    while (choix!=5) {
+        printf("\n                         CHIFFREMENT HILL\n\n");
+        affichageMenuTexte();
+        switch (choix = choixMenu()) {
+            case 0:
+                printf("\nVeuillez saisir un chiffre qui correspond à un choix.\n");
+                break;
+            case 1:
+                chiffrerEntreeHill();
+                break;
+            case 2:
+                chiffrerFichierHill();
+                break;
+            case 3:
+                dechiffrerEntreeHill();
+                break;
+            case 4:
+                dechiffrerFichierHill();
+                break;
             case 5:
                 break;
             case 6:

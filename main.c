@@ -6,8 +6,8 @@
 #include "chiffrement.h"
 #include "cesar.h"
 #include "vigenere.h"
+#include "hill.h"
 #include "affichage.h"
-#include "decrypt.h"
 
 
 int main() {
@@ -69,16 +69,32 @@ int main() {
     free(validCle);
     printf("OK after\n");
     */
-
-   FILE* fic = NULL;
-   int tab[128] = {0};
-   fic = fopen("texte.txt", "r");
-   stockerFrequence(tab, fic);
-   fclose(fic);
-   afficherTab(tab);
-   printf("test : |%c|\n", indiceMax(tab));
-
-
+   
+/*
+    int** key = NULL;
+    entrerCleHill(&key);
+    printf("matrice : %d\n", key[0][0]);
+    printf("matrice : %d\n", key[0][1]);
+    printf("matrice : %d\n", key[1][0]);
+    printf("matrice : %d\n", key[1][1]);
+    char* chaine = NULL;
+    entrerChaineEnClair(&chaine);
+    printf("clair : \n%s\n", chaine);
+    char* chaineChiffree = chiffrerHill(chaine, key);
+    printf("chiffrée : \n%s\n", chaineChiffree);
+    char* chaineDechiffree = dechiffrerHill(chaineChiffree, key);
+    printf("déchiffrée : \n%s\n", chaineDechiffree);
+    free(key[0]);
+    free(key[1]);
+    free(key);
+    free(chaine);
+    free(chaineChiffree);
+    free(chaineDechiffree);
+    */
+    
+    //chiffrerEntreeHill();
+    //dechiffrerEntreeHill();
+    
     while (1) {
         affichageMenuChiffrement();
         switch (choixMenu()) {
@@ -89,9 +105,11 @@ int main() {
                 chiffrementCesar();
                 break;
             case 2:
-                chiffrementDeVigenere();
+                chiffrementVigenere();
                 break;
             case 3:
+                chiffrementHill();
+            case 4:
                 printf("\nFin du programme...\n");
                 exit(EXIT_SUCCESS);
                 break;

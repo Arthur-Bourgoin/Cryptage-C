@@ -12,11 +12,13 @@ $(EXEC) : $(OBJ)
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-main.o : chiffrement.h cesar.h
+main.o : chiffrement.h cesar.h hill.h
 
 cesar.o : cesar.h
 
 vigenere.o : vigenere.h
+
+hill.o : hill.h
 
 chiffrement.o : chiffrement.h
 

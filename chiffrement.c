@@ -135,7 +135,7 @@ int entrerChaineEnClair(char** chaine) {
 
 int entrerChaineChiffree(char** chaine) {
     size_t taille = 0;
-    printf("\nEntrez une chaine cryptée à l'aide du chiffrement de César (caractères ASCII de 32 à 126) : ");
+    printf("\nEntrez une chaine chiffrée (caractères ASCII de 32 à 126) : ");
     if (getline(chaine, &taille, stdin) == -1) {
         perror("Erreur lors de la lecture de la chaine ");
         return -1;
