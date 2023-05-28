@@ -51,25 +51,25 @@ Si vous n'avez pas les droits pour éxécuter le fichier main (sous linux) :
 
 ### Chiffrement d'une chaine (César)
 
-1- Choix du chiffrement
+1- Choix du chiffrement  
 ![image1](img-readme/demo1/1.png)
 
-2- Choix de l'action à réaliser
+2- Choix de l'action à réaliser  
 ![image2](img-readme/demo1/2.png)
 
-3- Entrée de la chaine à chiffrée et affichage
+3- Entrée de la chaine à chiffrée et affichage  
 ![image3](img-readme/demo1/3.png)
 
 
 ### Déchiffrement d'un fichier texte (Hill)
 
-1- Choix du chiffrement
+1- Choix du chiffrement  
 ![image1](img-readme/demo2/1.png)
 
-2- Choix de l'action à réaliser
+2- Choix de l'action à réaliser  
 ![image2](img-readme/demo2/2.png)
 
-3- Entrée de la matrice de chiffrement
+3- Entrée de la matrice de chiffrement  
 ![image3](img-readme/demo2/3.png)
 
 
