@@ -1,3 +1,25 @@
+/******************************************************************************
+*  ASR => 4R2.04                                                              *
+*******************************************************************************
+*                                                                             *
+*  N° de Sujet : 3                                                            *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Intitulé : Chiffrement de messages                                         *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom-prénom1 : BOURGOIN Arthur                                              *
+*                                                                             *
+*  Nom-prénom2 : BIGNON Charley                                               *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom du fichier : chiffrement.c                                             *
+*                                                                             *
+******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,36 +28,6 @@
 
 #include "chiffrement.h"
 
-int verifierAlpha(char* chaine) {
-    for (int i = 0; i < (int) strlen(chaine); i++) {
-        if (isalnum(chaine[i]) == 0) {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-void convertirAccent(char* chaine) {
-    char* caracteresSansAccent = "nanooclsaeeeuc";
-    int index = -1;
-    char caractere;
-    for (int i = 0; i < (int) strlen(chaine); i++) {
-        caractere = chaine[i];
-        if ( (index = isCaractereAccent(caractere)) > -1 ) {
-            chaine[i] = caracteresSansAccent[index];
-        }
-    }
-}
-
-int isCaractereAccent(char c) {
-    char* caracteresAccent = "àéèêùç";
-    for (int i = 0; i < (int) strlen(caracteresAccent); i++) {
-        if (c == caracteresAccent[i]) {
-            return i;
-        }
-    }
-    return -1;
-}
 
 int isAffichableChar(char c) {
     if ((int) c < 32 || c == 127) {
@@ -56,12 +48,14 @@ int isAffichableString(char * ch) {
 int ouvrirFichierClair(FILE** fic, char** ficPath) {
     size_t taille = 0;
     printf("\nEntrez le nom du fichier que vous souhaitez chiffré (sans extension) : ");
+    //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("\nErreur lors de la lecture du chemin du fichier ");
         return -1;
     }
     (*ficPath)[strlen(*ficPath)-1] = '\0';
     strcat(*ficPath, ".txt");
+    //On ouvre le fichier en mode lecture
     if ((*fic = fopen(*ficPath, "r")) == NULL) {
         perror("\nErreur lors de l'ouverture du fichier ");
         return 0;
@@ -72,12 +66,14 @@ int ouvrirFichierClair(FILE** fic, char** ficPath) {
 int ouvrirFichierChiffre(FILE** fic, char** ficPath) {
     size_t taille = 0;
     printf("\nEntrez le nom du fichier que vous souhaitez déchiffré (sans extension) : ");
+    //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("\nErreur lors de la lecture du chemin du fichier ");
         return -1;
     }
     (*ficPath)[strlen(*ficPath)-1] = '\0';
     strcat(*ficPath, ".txt");
+    //On ouvre le fichier en mode lecture 
     if ((*fic = fopen(*ficPath, "r")) == NULL) {
         perror("\nErreur lors de l'ouverture du fichier ");
         return 0;
@@ -88,12 +84,14 @@ int ouvrirFichierChiffre(FILE** fic, char** ficPath) {
 int creerFichierChiffre(FILE** fic, char** ficPath) {
     size_t taille = 0;
     printf("Entrez le nom du fichier chiffré à créer (sans extension) : ");
+    //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("\nErreur lors de la lecture du chemin du fichier ");
         return -1;
     }
     (*ficPath)[strlen(*ficPath)-1] = '\0';
     strcat(*ficPath, ".txt");
+    //On ouvre (ou crée) le fichier en mode écriture
     if ((*fic = fopen(*ficPath, "w")) == NULL) {
         perror("\nErreur lors de l'ouverture du fichier ");
         return 0;
@@ -104,12 +102,14 @@ int creerFichierChiffre(FILE** fic, char** ficPath) {
 int creerFichierDechiffre(FILE** fic, char** ficPath) {
     size_t taille = 0;
     printf("Entrez le nom du fichier déchiffré à créer (sans extension) : ");
+    //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("Erreur lors de lecture du chemin du fichier ");
         return -1;
     }
     (*ficPath)[strlen(*ficPath)-1] = '\0';
     strcat(*ficPath, ".txt");
+    //On ouvre (ou crée) le fichier en mode écriture
     if ((*fic = fopen(*ficPath, "w")) == NULL) {
         perror("\nErreur lors de l'ouverture du fichier ");
         return 0;
@@ -120,11 +120,13 @@ int creerFichierDechiffre(FILE** fic, char** ficPath) {
 int entrerChaineEnClair(char** chaine) {
     size_t taille = 0;
     printf("\nEntrez une chaine de caractères affichables en ASCII (de 32 à 126) : ");
+    //On récupère la chaine en claire
     if (getline(chaine, &taille, stdin) == -1) {
         perror("Erreur lors de la lecture de la chaine ");
         return -1;
     }
     (*chaine)[strlen(*chaine)-1] = '\0';
+    //On vérifie que la chaine ne contient pas de caractères interdits
     if (!isAffichableString(*chaine)) {
         printf("\nErreur, la chaine contient des caractères interdits.\n");
         free(*chaine);
@@ -136,11 +138,13 @@ int entrerChaineEnClair(char** chaine) {
 int entrerChaineChiffree(char** chaine) {
     size_t taille = 0;
     printf("\nEntrez une chaine chiffrée (caractères ASCII de 32 à 126) : ");
+    //On récupère la chaine chiffrée
     if (getline(chaine, &taille, stdin) == -1) {
         perror("Erreur lors de la lecture de la chaine ");
         return -1;
     }
     (*chaine)[strlen(*chaine)-1] = '\0';
+    //On vérifie que la chaine ne contient pas de carcatères interdits
     if (!isAffichableString(*chaine)) {
         printf("\nErreur, la chaine contient des caractères interdits.\n");
         free(*chaine);
@@ -148,6 +152,7 @@ int entrerChaineChiffree(char** chaine) {
     }
     return 1;
 }
+
 
 void afficherCheminFicChiffre(char* ficPath) {
     char cwd[1000];

@@ -1,3 +1,25 @@
+/******************************************************************************
+*  ASR => 4R2.04                                                              *
+*******************************************************************************
+*                                                                             *
+*  N° de Sujet : 3                                                            *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Intitulé : Chiffrement de messages                                         *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom-prénom1 : BOURGOIN Arthur                                              *
+*                                                                             *
+*  Nom-prénom2 : BIGNON Charley                                               *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+*  Nom du fichier : affichage.c                                               *
+*                                                                             *
+******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +34,8 @@ int choixMenu() {
     char* choix = NULL;
     size_t taille = 0;
     int code;
+    //getline(&choix, &taille, stdin) != 2 car l'entrée de l'utilisateur doit contenir
+    //seulement un chiffre avec le caracatère \n en plus
     if (getline(&choix, &taille, stdin) != 2 || !isdigit(choix[0])) {
         free(choix);
         return 0;
@@ -51,9 +75,6 @@ void chiffrementVigenere() {
         printf("\n                    CHIFFREMENT DE VIGENERE\n\n");
         affichageMenuTexte();
         switch (choix = choixMenu()) {
-            case 0:
-                printf("\nVeuillez saisir un chiffre qui correspond à un choix.\n");
-                break;
             case 1:
                 chiffrerEntreeVigenere();
                 break;
@@ -84,9 +105,6 @@ void chiffrementCesar() {
         printf("\n                        CHIFFREMENT CESAR\n\n");
         affichageMenuTexte();
         switch (choix = choixMenu()) {
-            case 0:
-                printf("\nVeuillez saisir un chiffre qui correspond à un choix.\n");
-                break;
             case 1:
                 chiffrerEntreeCesar();
                 break;
@@ -117,9 +135,6 @@ void chiffrementHill() {
         printf("\n                         CHIFFREMENT HILL\n\n");
         affichageMenuTexte();
         switch (choix = choixMenu()) {
-            case 0:
-                printf("\nVeuillez saisir un chiffre qui correspond à un choix.\n");
-                break;
             case 1:
                 chiffrerEntreeHill();
                 break;

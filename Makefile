@@ -12,17 +12,17 @@ $(EXEC) : $(OBJ)
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-main.o : chiffrement.h cesar.h hill.h
+main.o : affichage.h
 
-cesar.o : cesar.h
+cesar.o : cesar.h chiffrement.h
 
-vigenere.o : vigenere.h
+vigenere.o : vigenere.h chiffrement.h
 
-hill.o : hill.h
+hill.o : hill.h chiffrement.h
 
 chiffrement.o : chiffrement.h
 
-affichage.o : affichage.h
+affichage.o : affichage.h cesar.h vigenere.h hill.h
 
 clean :
 	rm -f *.o $(EXEC)

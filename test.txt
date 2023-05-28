@@ -1,0 +1,10 @@
+Texte pour tester le programme :
+phrase 1 ,;:!
+phrase 2 +*/-9
+phrase 3 =)_
+phrase 4 &"'(
+phrase 5 <?.
+phrase 6 @/\#
+phrase 7 12'
+phrase 8 ~|{]
+FIN
