@@ -1,7 +1,9 @@
 
 # Chiffrement de messages
 
-Ce projet a pour but de découvrir les bases de la cryptographie, que l'on peut définir comme une technique d'écriture où un message chiffré est écrit à l'aide de codes secrets ou de clés de chiffrement. Nous avons implémenté trois méthodes différentes : le chiffrement de César, le chiffrement de Vigenère ainsi que le chiffrement de Hill. Pour ces trois techniques de chiffrement, vous aurez le choix entre chiffrer une chaine entrée au clavier, la déchiffrer, chiffrer un fichier texte ainsi que le déchiffrer. Nous avons aussi décidé de chiffrer les caractères à l'aide de la table ASCII, plus particulièrement les caractères dit 'affichables' (code ASCII de 32 à 126). Par la suite nous appelerons caractères non affichables/interdits tous les caractères ne faisant pas partie de cet ensemble.
+Ce projet a pour but de découvrir les bases de la cryptographie, que l'on peut définir comme une technique d'écriture où un message chiffré est écrit à l'aide de codes secrets ou de clés de chiffrement. Nous avons implémenté trois méthodes différentes : le chiffrement de César, le chiffrement de Vigenère ainsi que le chiffrement de Hill. Pour ces trois techniques de chiffrement, vous aurez le choix entre chiffrer une chaine entrée au clavier, la déchiffrer, chiffrer un fichier texte ainsi que le déchiffrer.  
+Nous avons aussi décidé de chiffrer les caractères à l'aide de la table ASCII, plus particulièrement les caractères dit 'affichables' (code ASCII de 32 à 126). Par la suite nous appelerons caractères non affichables/interdits tous les caractères ne faisant pas partie de cet ensemble.  
+Arrivés à la fin du projet, nous voulions gérer les caractères accentués, il fallait donc refactorer tout le code en modifiant 'char' en 'wchar_t'. Après quelques tests, nous avons finalement préféré laisser notre projet tel quel, il était un peu tard pour tout modifier. Il aurait fallu commencer directement avec le type 'wchar_t'.
 
 ## Installation
 
@@ -51,25 +53,25 @@ Si vous n'avez pas les droits pour éxécuter le fichier main (sous linux) :
 
 ### Chiffrement d'une chaine (César)
 
-1- Choix du chiffrement
+1- Choix du chiffrement  
 ![image1](img-readme/demo1/1.png)
 
-2- Choix de l'action à réaliser
+2- Choix de l'action à réaliser  
 ![image2](img-readme/demo1/2.png)
 
-3- Entrée de la chaine par l'utilisateur et affichage
+3- Entrée de la chaine par l'utilisateur et affichage  
 ![image3](img-readme/demo1/3.png)
 
 
 ### Déchiffrement d'un fichier texte (Hill)
 
-1- Choix du chiffrement
+1- Choix du chiffrement  
 ![image1](img-readme/demo2/1.png)
 
-2- Choix de l'action à réaliser
+2- Choix de l'action à réaliser  
 ![image2](img-readme/demo2/2.png)
 
-3- Entrée de la matrice de chiffrement
+3- Entrée de la matrice de chiffrement  
 ![image3](img-readme/demo2/3.png)
 
 
