@@ -84,8 +84,8 @@ int chiffrerLigneFichierHill(char* chaine, FILE* fic, int** matrixKey, int numLi
 /*
 Déchiffre un fichier avec le chiffrement de Hill
 0  --> erreur matrice de chiffrement
--1 --> erreur ouverture fichier clair (lecture)
--2 --> erreur ouverture fichier crypté (écriture)
+-1 --> erreur ouverture fichier chiffré (lecture)
+-2 --> erreur ouverture fichier en clair (écriture)
 -3 --> echec de la fonction dechiffrerHill() ou le fichier contient des caractères interdits
 1  --> OK
 */

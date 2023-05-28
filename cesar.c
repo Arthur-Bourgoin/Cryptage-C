@@ -36,6 +36,7 @@ char* chiffrerCesar(char* chaine, int cle) {
     if (chaineCryptee == NULL) {
         return NULL;
     }
+    //On chiffre les caractères un par un
     for (int i = 0; i < (int) strlen(chaine); i++) {
         chaineCryptee[i] = chiffrerCharCesar(chaine[i], validKey);
     }
@@ -60,6 +61,7 @@ char* dechiffrerCesar(char* chaine, int cle) {
     if (chaineDecryptee == NULL) {
         return NULL;
     }
+    //On déchiffre les carcatères un par un
     for (int i = 0; i < (int) strlen(chaine); i++) {
         chaineDecryptee[i] = dechiffrerCharCesar(chaine[i], validKey);
     }

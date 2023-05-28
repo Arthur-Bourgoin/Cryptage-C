@@ -31,6 +31,7 @@
 char* chiffrerVigenere(char * chaine, char* cle) {
     char* validKey = adapterCleVigenere(strlen(chaine), cle);
     char* chaineCryptee = malloc( (strlen(chaine)+1) * sizeof(char) );
+    //On chiffre les carcatères un par un
     for (int i=0; i < (int) strlen(chaine); i++) {
         chaineCryptee[i] = chiffrerCharVigenere(chaine[i], (int) validKey[i]);
     }
@@ -53,6 +54,7 @@ char chiffrerCharVigenere(char c, int cle) {
 char* dechiffrerVigenere(char* chaine, char* cle) {
     char* validKey = adapterCleVigenere(strlen(chaine), cle);
     char* chaineDecryptee = malloc( (strlen(chaine)+1) * sizeof(char) );
+    //On déchiffre les caractères un par un
     for (int i=0; i < (int) strlen(chaine); i++) {
         chaineDecryptee[i] = dechiffrerCharVigenere(chaine[i], (int) validKey[i]);
     }
@@ -76,6 +78,9 @@ char dechiffrerCharVigenere(char c, int cle) {
 
 char* adapterCleVigenere(int size, char* key) {
     char* validKey = malloc(size * (sizeof(char)+1));
+    if (validKey == NULL) {
+        return NULL;
+    }
     //On répète les caractères pour adapter la taille de la chaine
     for (int i=0; i<size; i++) {
         validKey[i] = key[i % strlen(key)];

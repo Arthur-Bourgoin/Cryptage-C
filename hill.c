@@ -107,7 +107,7 @@ char* dechiffrerHill(char* chaine, int** matrixKey) {
         free(chaineAdaptee);
         return NULL;
     }
-    //On récupère l'inverse de la matrice de chiffrement en entrée
+    //On récupère l'inverse de la matrice de chiffrement en paramètre
     int** inverseMatrixKey = inverserMatriceMod(matrixKey);
     if (inverseMatrixKey == NULL) {
         free(chaineAdaptee);
@@ -148,6 +148,8 @@ char* adapterChaineHill(char* chaine) {
     if (chaineAdaptee == NULL) {
         return NULL;
     }
+    //Si nécessaire, on ajoute un espace '' en fin de chaine pour
+    //que le nombre de caractère soit pair
     strcpy(chaineAdaptee, chaine);
     if (taille != (int) strlen(chaine)) {
         chaineAdaptee[taille-1]=' ';
@@ -157,6 +159,7 @@ char* adapterChaineHill(char* chaine) {
 }
 
 int** adapterMatriceMod(int** matrixKey) {
+    //Initialisation de la matrice
     int** matriceAdaptee = malloc(2 * sizeof(int*));
     if (matriceAdaptee == NULL) {
         return NULL;
@@ -186,6 +189,7 @@ int** adapterMatriceMod(int** matrixKey) {
 }
 
 int** inverserMatriceMod(int** matrixKey) {
+    //Initialisation de la matrice
     int** matriceInverse = malloc(sizeof(int*) * 2);
     if (matriceInverse == NULL) {
         return NULL;
@@ -431,7 +435,7 @@ int dechiffrerEntreeHill(){
 int entrerCleHill(int*** matrixKey){
     char* entree = NULL;
     size_t taille = 0;
-    //Tableau à 2 dimensions
+    //Initialisation de la matrice
     *matrixKey = malloc(sizeof(int*) * 2);
     if ((*matrixKey) == NULL) {
         return 0;
@@ -452,6 +456,7 @@ int entrerCleHill(int*** matrixKey){
     printf("    - déterminant obligatoirement différent de 0 (ad-bc != 0)\n\n");
     printf("      [ a   b ]\n");
     printf("      [ c   d ]\n\n");
+    //On demande à l'utilisateur de rentrer les coefficients un par un
     for (int i=0; i<2; i++) {
         for (int j=0; j<2; j++) {
             printf("Entrez le caractère M[%d][%d] : ", i, j);
@@ -463,6 +468,7 @@ int entrerCleHill(int*** matrixKey){
                 return -1;
             }
             entree[strlen(entree)-1] = '\0';
+            //Test de la validité de chaque coefficients
             if (((*matrixKey)[i][j] = atoi(entree)) == 0) {
                 printf("\nErreur, le caractère entré n'est pas valide.\n");
                 free(entree);
