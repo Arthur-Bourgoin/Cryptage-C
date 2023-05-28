@@ -7,6 +7,12 @@ Arrivés à la fin du projet, nous voulions gérer les caractères accentués, i
 
 ## Installation
 
+Lien github :
+```bash
+  https://github.com/Arthur-Bourgoin/Cryptage-C
+```
+
+
 Si git est installé sur votre apareil :
 ```bash
   git clone https://github.com/Arthur-Bourgoin/Cryptage-C.git
