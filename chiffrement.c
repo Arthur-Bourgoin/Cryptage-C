@@ -47,7 +47,7 @@ int isAffichableString(char * ch) {
 
 int ouvrirFichierClair(FILE** fic, char** ficPath) {
     size_t taille = 0;
-    printf("\nEntrez le nom du fichier que vous souhaitez chiffré (sans extension) : ");
+    printf("\nEntrez le nom du fichier que vous souhaitez chiffrer (sans extension) : ");
     //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("\nErreur lors de la lecture du chemin du fichier ");
@@ -65,7 +65,7 @@ int ouvrirFichierClair(FILE** fic, char** ficPath) {
 
 int ouvrirFichierChiffre(FILE** fic, char** ficPath) {
     size_t taille = 0;
-    printf("\nEntrez le nom du fichier que vous souhaitez déchiffré (sans extension) : ");
+    printf("\nEntrez le nom du fichier que vous souhaitez déchiffrer (sans extension) : ");
     //On récupère le nom du fichier
     if (getline(ficPath, &taille, stdin) == -1) {
         perror("\nErreur lors de la lecture du chemin du fichier ");

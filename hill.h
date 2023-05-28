@@ -131,3 +131,4 @@ int entrerCleHill(int*** matrixKey);
 Nettoie la mémoire
 */
 void cleanUpHill(FILE* fic1, FILE* fic2, char* chaine1, char* chaine2, char* chaine3, int** matrixKey);
+

@@ -40,36 +40,36 @@ Si vous n'avez pas les droits pour éxécuter le fichier main (sous linux) :
 
 ## Règles
 
-1- Seul les carcatères ASCII de 32 à 127 sont autorisés (126 pour Hill).  
+1- Seuls les caractères ASCII de 32 à 127 sont autorisés (126 pour Hill).  
 
-2- Seul les fichiers textes peuvent être chiffrés, si l'extension de votre fichier n'est pas .txt, vous obtiendrez une erreur.  
+2- Seuls les fichiers textes peuvent être chiffrés, si l'extension de votre fichier n'est pas .txt, vous obtiendrez une erreur.  
 
-3- La matrice du chiffrement de Hill ne peut pas avoir un déterminant égal à 0.  
+3- La matrice clé du chiffrement de Hill ne peut pas avoir un déterminant égal à 0.  
 
 4- Si vous décryptez une chaine avec un nombre de caractères impair (ce qui ne vous arrivera normalement pas) avec le chiffrement de Hill, les deux derniers caractères ne seront pas déchiffrés correctement.
-## Demo
+## Demonstration
 
 ### Chiffrement d'une chaine (César)
 
-1- Choix du chiffrement  
+1- Choix du chiffrement
 ![image1](img-readme/demo1/1.png)
 
-2- Choix de l'action à réaliser  
+2- Choix de l'action à réaliser
 ![image2](img-readme/demo1/2.png)
 
-3- Entrée de la chaine à chiffrée et affichage  
+3- Entrée de la chaine par l'utilisateur et affichage
 ![image3](img-readme/demo1/3.png)
 
 
 ### Déchiffrement d'un fichier texte (Hill)
 
-1- Choix du chiffrement  
+1- Choix du chiffrement
 ![image1](img-readme/demo2/1.png)
 
-2- Choix de l'action à réaliser  
+2- Choix de l'action à réaliser
 ![image2](img-readme/demo2/2.png)
 
-3- Entrée de la matrice de chiffrement  
+3- Entrée de la matrice de chiffrement
 ![image3](img-readme/demo2/3.png)
 
 
@@ -106,7 +106,7 @@ Le chiffrement de César est un chiffrement par substitution monoalphabétique, 
   * NULL en cas d'erreur
 
 #### char dechiffrerCharCesar(char c, int cle)
-* Déchiffre un carctère avec le chiffrement de César
+* Déchiffre un caractère avec le chiffrement de César
 * Paramètres :
   * c : le caractère à déchiffrer
   * cle : la clé de chiffrement
@@ -320,7 +320,7 @@ Pour les fonctions qui suivent, on traitera chaque opération modulo 127 et non 
 127 étant un nombre premier :  
 * ∀ x ∈ ℤ/127ℤ, ∃ y ∈ ℤ/127ℤ tel que x*y = 1 mod 127  
 
-Autrement dit n'importe quel entier est inversible modulo 127 (sauf 0), donc une matrice sera forcément inversible sauf dans le cas où son déterminant est égal à 0. De plus, 127 étant un caractère non affichable, ce n'est pas embêtant qu'on ne puisse pas l'utiliser
+Autrement dit n'importe quel entier est inversible modulo 127 (sauf 0), donc une matrice sera forcément inversible sauf dans le cas où son déterminant est égal à 0. De plus, 127 étant un caractère non affichable, ce n'est pas embêtant qu'on ne puisse pas l'utiliser.
 
 #### char* chiffrerHill(char* chaine, int** matrixKey)
 * Chiffre une chaine avec le chiffrement de Hill
@@ -370,7 +370,7 @@ Autrement dit n'importe quel entier est inversible modulo 127 (sauf 0), donc une
 * Paramètre :
   * matrixKey : Matrice à inverser
 * Retour :
-  * L'inverse de la matrice matrixKey
+  * L'inverse de la matrice matrixKey modulo 127
 
 #### int chiffrerFichierHill()
 * Chiffre un fichier à l'aide du chiffrement de Hill
@@ -563,6 +563,13 @@ Autrement dit n'importe quel entier est inversible modulo 127 (sauf 0), donc une
 
 #### void chiffrementHill()
 * Exécute l'action sélectionnée au menu précédent à l'aide du chiffrement de Hill
+
+## Fabriqué avec
+
+* [Visual Studio Code](https://code.visualstudio.com/) : Editeur de texte.
+* [Valgrind](https://valgrind.org/) : Pour repérer les erreurs d'utilisation de la mémoire.
+* [VirtualBox](https://www.virtualbox.org/) : Machine virtuelle sous Linux pour gérer la compilation.
+
 ## Auteurs
 
 - [@Arthur-Bourgoin](https://github.com/Arthur-Bourgoin)
